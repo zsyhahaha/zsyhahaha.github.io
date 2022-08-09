@@ -234,7 +234,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/zsyhahaha" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -291,7 +291,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/zsyhahaha" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/study/">
+                                <span class="chip bg-color">study</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -522,12 +526,111 @@ C++标准</p>
 <li>chapter 2 开始学习C++</li>
 </ol>
 <ul>
-<li><input disabled="" type="checkbox"> #include编译指令</li>
-<li><input disabled="" type="checkbox"> main()函数</li>
-<li><input disabled="" type="checkbox"> cin和cout</li>
-<li><input disabled="" type="checkbox"> 定义和使用函数</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+#include编译指令<sup>[5]</sup></p>
+<ul>
+<li><p>在预处理阶段，#include指令会将头文件拷贝到本文件内运行</p>
+</li>
+<li><p><code>#include &lt;xxx&gt;</code> 的处理顺序</p>
+<ul>
+<li>在编译器设置的include路径内搜索；</li>
+<li>如果上一步找不到，则在系统的include环境变量内搜索</li>
 </ul>
-<ol start="3">
+</li>
+<li><p><code>#incldue &quot;xxx&quot;</code> 的处理顺序</p>
+<ul>
+<li>先在这条include指令的父文件所在文件夹内搜索，所谓的父文件，就是这条include指令所在的文件</li>
+<li>如果上一步找不到，则在父文件的父文件所在文件夹内搜索；</li>
+<li>如果上一步找不到，则在编译器设置的include路径内搜索；</li>
+<li>如果上一步找不到，则在系统的include环境变量内搜索</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+main()函数</p>
+<ol>
+<li><p>main函数是C++程序的入口，每个C++程序必须要有一个main函数</p>
+</li>
+<li><p>main函数必须返回int值,返回0表示正常退出，返回非0则表示出现异常，C++默认返回值为0<sup>[6]</p>
+</li>
+<li><p>main函数注意事项：</p>
+<ul>
+<li>不能被重载。</li>
+<li>不能被定义为inline函数。</li>
+<li>不能被定义为static函数。</li>
+<li>不能对main函数的地址进行赋值。</li>
+<li>不能被调用。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+cin和cout<sup>[7]</p>
+<ul>
+<li><p>要理解cin和cout，首先需要理解C++中的流：  </p>
+<p>  原始数据需要用户输入到计算机，而处理结果则需要输出设备反馈给用户。最常见的输出设备是键盘，称为标准输入。常用的输出设备是显示器，称为标准输出。数据在键盘，<strong>计算机和显示器流动的过程看作是一个数据流动的过程</strong>。提供输入数据的数据源称为输入数据流；将输出时的目的地称为输出数据流，输入数据流和输入数据流统称为输入输出流</p>
+</li>
+<li><p>C++有三种流类库，均以ios类为基类：</p>
+<ol>
+<li><p>通用输入&#x2F;输出流类：提供通用的输入输出（简称标准I&#x2F;O）功能。</p>
+</li>
+<li><p>文件输入&#x2F;输出流类：提供文件输入输出（简称文件I&#x2F;O）功能。</p>
+</li>
+<li><p>字符串输入&#x2F;输出流类：提供字符串输入输出（简称字符串I&#x2F;O）功能。</p>
+</li>
+</ol>
+</li>
+<li><p>cin和cout分别为istream和ostream类的对象，是C++提前定义好的标准I&#x2F;O流对象，负责键盘输入与屏幕输出</p>
+</li>
+<li><p>istream类成员函数</p>
+<ul>
+<li>重载的&gt;&gt;操作符：</li>
+</ul>
+<ol>
+<li>右面是一个字符时，从缓冲区读取一个非空白字符的字符后停止读取  </li>
+<li>右面是一个字符串时，从缓冲区读取数据，若第一个字符为空白字符，则忽略并丢弃，读取下一个字符，直到遇到空白字符时停止读取，此空白符留在缓冲区</li>
+</ol>
+<ul>
+<li>cin.get()函数：</li>
+</ul>
+<ol>
+<li>无参数时，读入一个字符，<strong>包括换行符</strong>，常用来处理输入缓冲区中的换行符</li>
+<li>接受一个参数时，格式为 <code>cin.get(char ch);</code>,读入一个字符后结束读取</li>
+<li>接受两个参数时，格式为 <code>cin.get(array_name, ArSize);</code>，从缓冲区读取数据，达到行尾或者读取了 ArSize - 1 个字符为止，且超过规定的字符数不会出现错误，会直接截断，cin.get() 不对此换行符进行处理，并将其留在缓冲区。</li>
+</ol>
+<ul>
+<li>cin.getline()函数：</li>
+</ul>
+<ol>
+<li>接受两个参数，格式为 <code>cin.getline(array_name, ArSize);</code>，函数从缓冲区读取数据，达到行尾或者读取了 ArSize - 1 个字符为止，且超过所规定的字符数会出现错误，cin.getline() 读取换行符后将其替换为空字符，并丢弃</li>
+</ol>
+</li>
+<li><p>cin与错误处理</p>
+<ul>
+<li>当输入不合法的数据时，cin不会将此数据读出，该数据将一直留在缓冲区，此时我们需要  <ol>
+<li>重置cin以接受新的输入</li>
+<li>删除错误输入</li>
+<li>提示用户重新输入</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+定义和使用函数</p>
+<ul>
+<li><p>C++函数定义通用格式：  </p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">typeName <span class="title">functionName</span><span class="params">(parameterList)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        statements</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>C++对返回值类型有一定的限制，返回类型为除数组以外的任何数据类型，甚至是数据结构和对象（数组虽然不能直接作为函数的返回值，却可以作为结构和对象的组成部分来返回），函数中的型参被称为自动变量，他们是在程序执行过程中自动被分配和释放的</p>
+</li>
+<li><p>C++中函数原型中的变量名不必与定义中的变量名相同，而且可以省略</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">func</span>(<span class="type">char</span>,<span class="type">int</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<ol>
 <li>chapter 3 处理数据</li>
 </ol>
 <ul>
@@ -543,9 +646,14 @@ C++标准</p>
 <li><p>[1] C++链接属性</p>
 <p>  编译器将.cpp文件编译生成二进制目标文件.obj，然后由链接器将.obj链接为可执行程序.exe(Linux下为.out)，链接过程中，避免多个文件中相同变量和函数的重复定义，C++使用几个关键字来定义链接属性</p>
 <p>  C++的链接属性分为external，internal，none:</p>
-<p>  拥有external链接属性的变量可被所有文件访问，使用关键字external来定义;</p>
-<p>  拥有internal属性的变量只能在其定义的文件中被访问，使用关键字static定义;</p>
-<p>  拥有none属性的变量只能在其定义开始处到代码块作用域结束处被访问，在函数体内定义;</p>
+<ol>
+<li><p>拥有external链接属性的变量可被所有文件访问，使用关键字external来定义;</p>
+</li>
+<li><p>拥有internal属性的变量只能在其定义的文件中被访问，使用关键字static定义;</p>
+</li>
+<li><p>拥有none属性的变量只能在其定义开始处到代码块作用域结束处被访问，在函数体内定义;</p>
+</li>
+</ol>
 <ul>
 <li>变量一经定义其链接链接属性就不能被改变</li>
 </ul>
@@ -587,7 +695,7 @@ C++标准</p>
 <li>32位系统一般为每个进程分配4GB虚拟地址空间</li>
 </ul>
 <p>  Linux系统下虚拟地址空间结构：</p>
-<p>  <a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EVInMy"><img src="https://img.gejiba.com/images/c71cb228f7b0d8d44686cec66681d22b.jpg" alt="c71cb228f7b0d8d44686cec66681d22b.jpg"></a></p>
+<p>  <a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EVInMy"><img src="https://img.gejiba.com/images/c71cb228f7b0d8d44686cec66681d22b.jpg"></a></p>
 </li>
 <li><p>[4] 静态链接和动态链接</p>
 <ul>
@@ -595,8 +703,8 @@ C++标准</p>
 </ul>
 <p>  静态链接的处理过程分为2个步骤：</p>
 <ol>
-<li>空间与地址的分配。扫描所有的目标文件，合并相似段，收集当中所有的符号信息。</li>
-<li>符号解析与重定位。调整代码位置。</li>
+<li>空间与地址的分配。扫描所有的目标文件，合并相似段，收集当中所有的符号信息</li>
+<li>符号解析与重定位。调整代码位置</li>
 </ol>
 <ul>
 <li>动态链接：在编译的时候不直接拷贝可执行代码，而是通过记录一系列符号和参数，在程序运行或加载时将这些信息传递给操作系统，操作系统负责将需要的动态库加载到内存中，然后程序在运行到指定的代码时，去共享执行内存中已经加载的动态库可执行代码，最终达到运行时连接的目的</li>
@@ -626,15 +734,45 @@ C++标准</p>
 </li>
 </ul>
 </li>
+<li><p>[5] C++预处理指令</p>
+<p>  预处理器的主要作用就是: 把通过预处理的内建功能对一个资源进行等价替换，下面是一些常见的预处理指令</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span>         宏定义</span></span><br><span class="line"><span class="meta">#<span class="keyword">undef</span>          取消宏</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span>        文本包含</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span>          如果宏被定义就进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span>         如果宏未被定义就进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span>          结束编译块的控制</span></span><br><span class="line"><span class="meta">#<span class="keyword">if</span>             表达式非零就对代码进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span>           作为其他预处理的剩余选项进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span>           这是一种#<span class="keyword">else</span>和#<span class="keyword">if</span>的组合选项</span></span><br><span class="line"><span class="meta">#<span class="keyword">line</span>           改变当前的行数和文件名称</span></span><br><span class="line"><span class="meta">#<span class="keyword">error</span>          输出一个错误信息</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span>         为编译程序提供非常规的控制流信息</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>#define和const的区别</li>
+</ul>
+<ol>
+<li>编译器处理方式不同：<br> define宏是在预处理阶段展开<br> const常量是编译运行阶段使用</li>
+<li>类型和安全检查不同：<br> define宏没有类型，不做任何类型检查，仅仅是展开<br> const常量有具体的类型，在编译阶段会执行类型检查</li>
+<li>存储方式不同：<br> define仅仅是展开，不会分配内存<br> const会在堆栈中分配空间</li>
+</ol>
+</li>
+<li><p>[6] main函数中的参数</p>
+<ol>
+<li><p><code>int main()</code></p>
+<p> 没有任何参数，是最常见的main函数</p>
+</li>
+<li><p><code>int main(int argc, char* argv[])</code></p>
+<p> 第一个参数argc表示向程序传递的参数个数，第二个参数argv存放命令行参数字符串</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(argc &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;need para&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; argc; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += <span class="built_in">atoi</span>(argv[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;sum = &quot;</span>&lt;&lt;sum&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> 运行结果<br> <a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EV73aS"><img src="https://img.gejiba.com/images/351f44dc8006bba3482d622143889a4c.png"></a></p>
+</li>
+</ol>
+</li>
+<li><p>[7] 输入、输出与缓冲区</p>
+<ul>
+<li>当用户从键盘上输入一段内容时，不会立刻被cin获取到，而是先存放在缓冲区中，当按下回车时，cin从缓冲区读取内容，经过格式转换后赋值给变量;<br>  当使用cout时，cout流会先从右向左将要输出的内容存入缓冲区，然后会从左向右输出</li>
+<li>cin.get()与cin.getline()</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>报错和解决方案</p>
 </blockquote>
 <ol>
-<li><p>在编译生成external.exe时，出现以下错误，显示函数和变量重复定义<br><a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EVIQBM"><img src="https://img.gejiba.com/images/3f0b17e782f2eb9d6928c3920aaf03bc.png" alt="3f0b17e782f2eb9d6928c3920aaf03bc.png"></a><br>原因为在使用extern声明时还引入了file2.cpp，导致二义性</p>
+<li><p>在编译生成external.exe时，出现以下错误，显示函数和变量重复定义<br><a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EVIQBM"><img src="https://img.gejiba.com/images/3f0b17e782f2eb9d6928c3920aaf03bc.png"></a><br>原因为在使用extern声明时还引入了file2.cpp，导致二义性</p>
 <p> 将<code>#include&quot;file2.cpp&quot;</code>删除，程序正常运行</p>
 </li>
-<li><p>使用动态库时，编译器报错<br><a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EVIi78"><img src="https://img.gejiba.com/images/0167f75cdf0cb988ef0f6f43c3ad92d2.png" alt="0167f75cdf0cb988ef0f6f43c3ad92d2.png"></a><br>原因是没有在环境变量中配置路径，配置PATH后程序正常运行</p>
+<li><p>使用动态库时，编译器报错<br><a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EVIi78"><img src="https://img.gejiba.com/images/0167f75cdf0cb988ef0f6f43c3ad92d2.png"></a><br>原因是没有在环境变量中配置路径，配置PATH后程序正常运行</p>
 </li>
 </ol>
 
@@ -700,7 +838,11 @@ C++标准</p>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/study/">
+                                    <span class="chip bg-color">study</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -902,6 +1044,14 @@ C++标准</p>
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/study/">
+                        <span class="chip bg-color">study</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -1074,9 +1224,9 @@ C++标准</p>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <span id="year">2019</span>
+            <span id="year">2022</span>
             <a href="/about" target="_blank">zsy</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
