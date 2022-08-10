@@ -463,12 +463,17 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="计划表Week-1"><a href="#计划表Week-1" class="headerlink" title="计划表Week 1"></a>计划表Week 1</h1><blockquote>
+                <p>第一周总结</p>
+<span id="more"></span>
+<h1 id="计划表Week-1"><a href="#计划表Week-1" class="headerlink" title="计划表Week 1"></a>计划表Week 1</h1><blockquote>
 <p>总体目标</p>
 </blockquote>
 <p>深入学习C++ primer plus，掌握C++基础知识</p>
@@ -622,11 +627,16 @@ cin和cout<sup>[7]</p>
 定义和使用函数</p>
 <ul>
 <li><p>C++函数定义通用格式：  </p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">typeName <span class="title">functionName</span><span class="params">(parameterList)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        statements</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typeName functionName(parameterList)
+&#123;
+        statements
+        return value;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>C++对返回值类型有一定的限制，返回类型为除数组以外的任何数据类型，甚至是数据结构和对象（数组虽然不能直接作为函数的返回值，却可以作为结构和对象的组成部分来返回），函数中的型参被称为自动变量，他们是在程序执行过程中自动被分配和释放的</p>
 </li>
 <li><p>C++中函数原型中的变量名不必与定义中的变量名相同，而且可以省略</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">func</span>(<span class="type">char</span>,<span class="type">int</span>);</span><br></pre></td></tr></table></figure></li>
+  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">func(char,int);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>
@@ -736,7 +746,18 @@ cin和cout<sup>[7]</p>
 </li>
 <li><p>[5] C++预处理指令</p>
 <p>  预处理器的主要作用就是: 把通过预处理的内建功能对一个资源进行等价替换，下面是一些常见的预处理指令</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span>         宏定义</span></span><br><span class="line"><span class="meta">#<span class="keyword">undef</span>          取消宏</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span>        文本包含</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span>          如果宏被定义就进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span>         如果宏未被定义就进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span>          结束编译块的控制</span></span><br><span class="line"><span class="meta">#<span class="keyword">if</span>             表达式非零就对代码进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span>           作为其他预处理的剩余选项进行编译</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span>           这是一种#<span class="keyword">else</span>和#<span class="keyword">if</span>的组合选项</span></span><br><span class="line"><span class="meta">#<span class="keyword">line</span>           改变当前的行数和文件名称</span></span><br><span class="line"><span class="meta">#<span class="keyword">error</span>          输出一个错误信息</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span>         为编译程序提供非常规的控制流信息</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define         宏定义
+#undef          取消宏
+#include        文本包含
+#ifdef          如果宏被定义就进行编译
+#ifndef         如果宏未被定义就进行编译
+#endif          结束编译块的控制
+#if             表达式非零就对代码进行编译
+#else           作为其他预处理的剩余选项进行编译
+#elif           这是一种#else和#if的组合选项
+#line           改变当前的行数和文件名称
+#error          输出一个错误信息
+#pragma         为编译程序提供非常规的控制流信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>#define和const的区别</li>
 </ul>
@@ -753,7 +774,22 @@ cin和cout<sup>[7]</p>
 </li>
 <li><p><code>int main(int argc, char* argv[])</code></p>
 <p> 第一个参数argc表示向程序传递的参数个数，第二个参数argv存放命令行参数字符串</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(argc &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;need para&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; argc; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += <span class="built_in">atoi</span>(argv[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;sum = &quot;</span>&lt;&lt;sum&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char * argv[])
+&#123;
+    if(argc &lt; 2)
+    &#123;
+        cout&lt;&lt;&quot;need para&quot;&lt;&lt;endl;
+    &#125;
+    int sum &#x3D; 0;
+    for(int i &#x3D; 1; i &lt; argc; i++)
+    &#123;
+        sum +&#x3D; atoi(argv[i]);
+    &#125;
+    cout&lt;&lt;&quot;sum &#x3D; &quot;&lt;&lt;sum&lt;&lt;endl;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p> 运行结果<br> <a target="_blank" rel="noopener" href="https://img.gejiba.com/image/EV73aS"><img src="https://img.gejiba.com/images/351f44dc8006bba3482d622143889a4c.png"></a></p>
 </li>
 </ol>
@@ -1027,7 +1063,7 @@ cin和cout<sup>[7]</p>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            第一周总结
                         
                     </div>
                     <div class="publish-info">
@@ -1073,7 +1109,7 @@ cin和cout<sup>[7]</p>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            这里是摘要
                         
                     </div>
                     <div class="publish-info">
@@ -1083,10 +1119,18 @@ cin和cout<sup>[7]</p>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            zsy
+                            github
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hello/">
+                        <span class="chip bg-color">hello</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1104,8 +1148,6 @@ cin和cout<sup>[7]</p>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
 
 <!-- 代码块复制 -->
 
@@ -1113,8 +1155,6 @@ cin和cout<sup>[7]</p>
 
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
