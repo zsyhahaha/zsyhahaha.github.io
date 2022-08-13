@@ -2705,7 +2705,7 @@ ul.breadcrumb li:last-child {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #11b9c9;
+  background: #4744ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2724,4 +2724,11 @@ ul.breadcrumb li:last-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+body {
+  background-image: url("https://img.gejiba.com/images/2e1ddf29c37820d72065651c8f11bc9a.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
 }
