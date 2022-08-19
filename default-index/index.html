@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-18 15:00:13" itemprop="dateModified" datetime="2022-08-18T15:00:13+08:00">2022-08-18</time>
+      <time title="Modified: 2022-08-19 17:30:25" itemprop="dateModified" datetime="2022-08-19T17:30:25+08:00">2022-08-19</time>
     </span>
 
   
@@ -796,8 +796,24 @@ tolower(a)&#x2F;&#x2F;如果a是大写字母，输出对应的小写字母；否
     
 toupper(a)&#x2F;&#x2F;如果a是小写字母，输出对应的大写字母；否则原样输出a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="常量指针与指针常量"><a href="#常量指针与指针常量" class="headerlink" title="常量指针与指针常量"></a>常量指针与指针常量</h2><ul>
+<li>常量指针</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int * p &#x3D; &amp;a;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>指针指向可以修改，指向内容不可修改；</p>
+<ul>
+<li>指针常量</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int * const p &#x3D; &amp;a;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>指针指向不可修改，指向内容可以修改；</p>
+<ul>
+<li>const 即修饰指针，又修饰常量</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int * const p &#x3D; &amp;a;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>指针指向和内容都不可以修改</p>
 <h1 id="报错与解决方案"><a href="#报错与解决方案" class="headerlink" title="报错与解决方案"></a>报错与解决方案</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
 &#123;
     char ch;
