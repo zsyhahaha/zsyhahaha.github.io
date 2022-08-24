@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zsyhahaha.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="WEEK_3 总体目标  深入学习C++ primer plus，掌握C++基础知识  本周目标  chapter 7,8 函数函数原型typeName functionName(parameterList) &amp;#123; 		statements 		return value; &amp;#125;  ​	C++对返回值类型有一定的限制，返回类型为除数组以外的任何数据类型，甚至是数据结构和对象（数组虽然">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEEK_3">
+<meta property="og:url" content="https://zsyhahaha.github.io/2022/08/22/week3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="WEEK_3 总体目标  深入学习C++ primer plus，掌握C++基础知识  本周目标  chapter 7,8 函数函数原型typeName functionName(parameterList) &amp;#123; 		statements 		return value; &amp;#125;  ​	C++对返回值类型有一定的限制，返回类型为除数组以外的任何数据类型，甚至是数据结构和对象（数组虽然">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-22T00:35:06.000Z">
+<meta property="article:modified_time" content="2022-08-24T02:43:43.966Z">
+<meta property="article:author" content="zsy">
+<meta property="article:tag" content="study">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zsyhahaha.github.io/2022/08/22/week3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zsyhahaha.github.io/2022/08/22/week3/","path":"2022/08/22/week3/","title":"WEEK_3"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>WEEK_3 | Hexo</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog Zsy</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WEEK-3"><span class="nav-number">1.</span> <span class="nav-text">WEEK_3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#chapter-7-8-%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">chapter 7,8 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.3.</span> <span class="nav-text">函数与二维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">1.1.4.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">1.1.5.</span> <span class="nav-text">函数指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.6.</span> <span class="nav-text">内联函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.1.7.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">1.1.8.</span> <span class="nav-text">函数重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.1.9.</span> <span class="nav-text">函数模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chapter-9-%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4"><span class="nav-number">1.2.</span> <span class="nav-text">chapter 9 名称空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.2.1.</span> <span class="nav-text">命名空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E5%92%8C%E6%89%A9%E5%B1%95"><span class="nav-number">1.3.</span> <span class="nav-text">深入和扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E4%B8%8E%E6%8C%87%E9%92%88"><span class="nav-number">1.3.1.</span> <span class="nav-text">引用与指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6%E5%80%BC%E4%B8%8E%E5%8F%B3%E5%80%BC"><span class="nav-number">1.3.2.</span> <span class="nav-text">左值与右值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8D%E7%A7%B0%E4%BF%AE%E9%A5%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">名称修饰</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%A5%E9%94%99%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.4.</span> <span class="nav-text">报错与解决方案</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zsy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zsyhahaha" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zsyhahaha" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/3147744201@qq.com" title="E-Mail → 3147744201@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zsyhahaha.github.io/2022/08/22/week3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zsy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="WEEK_3 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WEEK_3
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-22 08:35:06" itemprop="dateCreated datePublished" datetime="2022-08-22T08:35:06+08:00">2022-08-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-24 10:43:43" itemprop="dateModified" datetime="2022-08-24T10:43:43+08:00">2022-08-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="WEEK-3"><a href="#WEEK-3" class="headerlink" title="WEEK_3"></a>WEEK_3</h1><blockquote>
+<p>总体目标</p>
+</blockquote>
+<p>深入学习C++ primer plus，掌握C++基础知识</p>
+<blockquote>
+<p>本周目标</p>
+</blockquote>
+<h2 id="chapter-7-8-函数"><a href="#chapter-7-8-函数" class="headerlink" title="chapter 7,8 函数"></a>chapter 7,8 函数</h2><h3 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typeName functionName(parameterList)
+&#123;
+		statements
+		return value;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​	C++对返回值类型有一定的限制，返回类型为除数组以外的任何数据类型，甚至是数据结构和对象（数组虽然不能直接作为函数的返回值，却可以作为结构和对象的组成部分来返回），函数中的型参被称为自动变量，他们是在程序执行过程中自动被分配和释放的。</p>
+<h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><ul>
+<li>形参和实参<ul>
+<li>形参   函数在定义时候括号中的参数称之为形参</li>
+<li>实参   函数在调用的时候括号中的参数称之为实参</li>
+<li>形参和实参可以同名 但是并不是同一个变量 不占同一块内存 修改形参并不会影响实参 </li>
+<li>通过指针可以直接通过地址修改调用函数中的变量</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数与二维数组"><a href="#函数与二维数组" class="headerlink" title="函数与二维数组"></a>函数与二维数组</h3><p>将二维数组当作参数的时候，必须指明所有维数大小或者省略第一维的，但是不能省略第二维或者更高维的大小，这是由编译器原理限制的，如：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Func(int array[3][10]);
+void Func(int array[][10]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>是合法的，而</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Func(int array[][]);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>不合法</p>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>函数在函数定义的时候调用本身(自己直接或者间接调用自己)称之为递归</p>
+<ul>
+<li>优点<ul>
+<li>少量代码即可描述出一个需要重复计算的问题</li>
+<li>循环能实现的递归都能实现,但是递归能实现的,循环未必能实现</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>相当于其他常用方法(比如循环)效率较低</li>
+<li>每次调用都会为参数和返回值开辟栈区内存 递归次数过多容易引发栈溢出</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h3><p>如果在程序中定义了一个函数，那么在编译时系统就会为这个函数代码分配一段存储空间，这段存储空间的首地址称为这个函数的地址。而且函数名表示的就是这个地址。既然是地址我们就可以定义一个指针变量来存放，这个指针变量就叫作函数指针变量，简称函数指针。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int(*p)(int, int);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我们看到，函数指针的定义就是将“函数声明”中的“函数名”改成“（*指针变量名）”。但是这里需要注意的是：“（*指针变量名）”两端的括号不能省略，括号改变了运算符的优先级。如果省略了括号，就不是定义函数指针而是一个函数声明了，即声明了一个返回值类型为指针型的函数</p>
+<h3 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h3><ul>
+<li><p>C++内联函数是通常与类一起使用。如果一个函数是内联的，那么在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方。</p>
+</li>
+<li><p>对内联函数进行任何修改，都需要重新编译函数的所有客户端，因为编译器需要重新更换一次所有的代码，否则将会继续使用旧的函数。</p>
+</li>
+<li><p>如果想把一个函数定义为内联函数，则需要在函数名前面放置关键字 <strong>inline</strong>，在调用函数之前需要对函数进行定义。如果已定义的函数多于一行，编译器会忽略 inline 限定符。</p>
+</li>
+<li><p>在类定义中的定义的函数都是内联函数，即使没有使用 <strong>inline</strong> 说明符。</p>
+</li>
+</ul>
+<p>要使用内联函数，需要在函数声明和定义前都加上<code>inline</code></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">inline void Foo(int x, int y);&#x2F;&#x2F;声明
+inline void Foo(int x, int y)
+&#123;
+	...
+&#125;&#x2F;&#x2F;定义<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以下情况不宜使用内联：</p>
+<p>（1）如果函数体内的代码比较长，使用内联将导致内存消耗代价较高。</p>
+<p>（2）如果函数体内出现循环，那么执行函数体内代码的时间要比函数调用的开销大。</p>
+<p>注意：内联函数不能递归</p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>C++中，&amp;符号还可以表示引用，意味着给一个变量起别名，他们指向相同的值和内存单元，比如</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a;
+int &amp;b &#x3D; a;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这里b就是a的引用</p>
+<p><strong>注意</strong>：</p>
+<ol>
+<li><p>不能定义所谓的空引用</p>
+</li>
+<li><p>定义引用时必须初始化</p>
+</li>
+<li><p>引用没有二级引用，引用不分等级，没有引用的引用</p>
+</li>
+</ol>
+<p><strong>引用作为函数参数</strong>：</p>
+<ol>
+<li>使用值传递时，调用函数使用调用程序的值的拷贝，所作的修改并不会影响到函数外部</li>
+<li>使用引用传递时，函数中的变量名为调用程序的变量的别名，所作的修改会影响到调用程序</li>
+</ol>
+<p><strong>用const修饰引用</strong>：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a &#x3D; 10;
+const int &amp;b &#x3D; a;
+int const &amp;c &#x3D; a;&#x2F;&#x2F;两种声明是等效的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>修饰后，就不能通过引用来修改变量的值</p>
+<p>总结较为简单，可以查看<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_56935264/article/details/124669712?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-124669712-blog-124749370.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-124669712-blog-124749370.pc_relevant_default&utm_relevant_index=6">csdn上的总结</a>更为全面</p>
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>函数重载即函数名相同，函数<strong>形参列表不同</strong>（函数特征标不同）的一类函数称为函数重载。注意函数重载的依据只有形参列表不同。函数的返回类型不同不可以作为函数重载的依据。<br>如果两个函数的参数数目和类型相同，那么这两个函数的函数特征标就相同，不能重载。<br>如下举例一组重载函数：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void fun(int a);
+void fun(int a,int b);
+void fun(double a,int b);
+void fun(double a,double b);
+void fun(const char* str);
+void funn(char* str);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意：</p>
+<ul>
+<li>函数的返回类型和重载没有任何关系，即两个重载函数的函数返回类型可以不同，也可以相同。</li>
+<li>类型引用和类型本身被看作同一个函数特征标，</li>
+</ul>
+<p>当某个参数匹配多个重载函数时，C++ 标准规定，在进行重载决议时编译器应该按照下面的优先级顺序来处理实参的类型：</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>包含的内容</th>
+<th>举例说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>精确匹配</td>
+<td>不做类型转换，直接匹配</td>
+<td>（暂无说明）</td>
+</tr>
+<tr>
+<td>只是做微不足道的转换</td>
+<td>从数组名到数组指针、从函数名到指向函数的指针、从非 const 类型到 const 类型。</td>
+<td></td>
+</tr>
+<tr>
+<td>类型提升后匹配</td>
+<td>整型提升</td>
+<td>从 bool、char、short 提升为 int，或者从 char16_t、char32_t、wchar_t 提升为 int、long、long long。</td>
+</tr>
+<tr>
+<td>小数提升</td>
+<td>从 float 提升为 double。</td>
+<td></td>
+</tr>
+<tr>
+<td>使用自动类型转换后匹配</td>
+<td>整型转换</td>
+<td>从 char 到 long、short 到 long、int 到 short、long 到 char。</td>
+</tr>
+<tr>
+<td>小数转换</td>
+<td>从 double 到 float。</td>
+<td></td>
+</tr>
+<tr>
+<td>整数和小数转换</td>
+<td>从 int 到 double、short 到 float、float 到 int、double 到 long。</td>
+<td></td>
+</tr>
+<tr>
+<td>指针转换</td>
+<td>从 int * 到 void *。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>如果在一个优先级中找到多个（两个以及以上）合适的重载函数，编译器就会陷入两难境地，不知道如何抉择，编译器会将这种模棱两可的函数调用视为一种错误，因为这些合适的重载函数同等“优秀”，没有一个脱颖而出，调用谁都一样。这就是函数重载过程中的二义性错误。</p>
+<h3 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h3><p>函数模板作用：建立一个通用函数，其函数返回值类型和形参类型可以不具体制定，用一个<strong>虚拟的类型</strong>来代表<br><strong>语法</strong>：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">></span>
+T <span class="token function">func</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>解释：<br><code>template</code>声明创建模板<br><code>typename</code>表示其后面的符号是一种数据类型，可以用<code>class</code>代替<br><code>T</code>是通用的数据类型，名称可以替换，通常为大写字母</p>
+<p><strong>实例化和具体化：</strong></p>
+<p>每个模板在调用时会传入具体的参数，此时T会自动转换为参数的数据类型，这种实例化方式称为<strong>隐式实例化</strong></p>
+<p>最初，编译器只支持隐式实例化，但目前C++支持<strong>显示实例化</strong>，这意味着可以直接命令编译器创建特定的实例，如</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template void Swap&lt;int&gt;(int &amp;, int &amp;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这将使用Swap模板生成一个使用int类型的实例</p>
+<p>但模板还是不能识别结构体或自定义的数据类型，此时可以使用显示具体化来定义一个实例，如</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template &lt;&gt; void Swap&lt;Person&gt;(Person &amp; p1, Person &amp; p2);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="chapter-9-名称空间"><a href="#chapter-9-名称空间" class="headerlink" title="chapter 9 名称空间"></a>chapter 9 名称空间</h2><h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>1.目的：解决名称（变量、函数、结构、枚举、类、类和结构的成员）冲突问题</p>
+<p>2.核心思想：声明名称的[作用域</p>
+<p>3.用法</p>
+<p>1）名称空间可以是全局的，也可以位于另一个名称空间中。但是不可以在代码块中。</p>
+<p>2）访问名称空间中的成员，通过作用域解析运算符<code>::</code></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">namespace Jcak&#123; 
+  double pail;
+  void   fetch();
+  int    pal;
+&#125;
+
+namespce Jill&#123;
+double  bucket(double n)&#123;...&#125;
+double  fetch;
+int     pal;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>4.using声明和using编译</p>
+<p>1）using声明</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">using</span> Jill::<span class="token keyword">fetch</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使特定的标识符可用。在上面的语句中，完成声明后，可以使用fetch代替Jill::fetch。</p>
+<p>2）using编译</p>
+<pre class="line-numbers language-vbnet" data-language="vbnet"><code class="language-vbnet"><span class="token keyword">using</span> <span class="token keyword">namespace</span> Jack<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使整个名称空间可用。内部成员都可以不再使用作用域解析运算符了。</p>
+<p>5.using声明和using编译区别</p>
+<p>1）using声明时，就好像声明了相应的名称一样。如果某个名称已经在函数中声明了，则不能使用using声明导入相同的名称。</p>
+<p>2）using编译时，将进行名称解析，就像在包含using声明和名称空间本身的最小声明区域中声明了名称一样。会导致局部变量将其覆盖。</p>
+<p>综上，优先使用using声明。因为，如果发生冲突时编译器会报错；但是使用using编译会覆盖，隐藏危险。</p>
+<h2 id="深入和扩展"><a href="#深入和扩展" class="headerlink" title="深入和扩展"></a>深入和扩展</h2><h3 id="引用与指针"><a href="#引用与指针" class="headerlink" title="引用与指针"></a>引用与指针</h3><ol>
+<li>指针是一个变量，只不过这个变量存储的是一个地址，指向内存的一个存储单元；而引用跟原来的变量实质上是同一个东西，只不过是原变量的一个别名而已</li>
+<li>引用不可以为空，当被创建的时候，必须初始化，初始化后就不会再改变了；而指针可以是空值，可以在任何时候被初始化，指针的值在初始化后可以改变，即指向其它的存储单元</li>
+<li>可以有const指针，但是没有const引用</li>
+<li>指针可以有多级，但是引用只能是一级（int **p；合法 而 int &amp;&amp;a是不合法的）</li>
+<li>”sizeof引用”得到的是所指向的变量(对象)的大小，而”sizeof指针”得到的是指针本身的大小</li>
+<li>指针和引用的自增(++)运算意义不一样</li>
+<li>如果返回动态内存分配的对象或者内存，必须使用指针，引用可能引起内存泄漏</li>
+<li>从内存分配上看，程序为指针变量分配内存区域，而不为引用分配内存区域，因为引用声明时必须初始化，从而指向一个已经存在的对象。引用不能指向空值</li>
+<li>从编译上看，程序在编译时分别将指针和引用添加到符号表上，符号表上记录的是变量名及变量所对应地址。指针变量在符号表上对应的地址值为指针变量的地址值，而引用在符号表上对应的地址值为引用对象的地址值。符号表生成后就不会再改，因此指针可以改变指向的对象（指针变量中的值可以改），而引用对象不能改。这是使用指针不安全而使用引用安全的主要原因。从某种意义上来说引用可以被认为是不能改变的指针</li>
+<li>不存在指向空值的引用这个事实，意味着使用引用的代码效率比使用指针的要高。因为在使用引用之前不需要测试它的合法性。相反，指针则应该总是被测试，防止其为空</li>
+</ol>
+<h3 id="左值与右值"><a href="#左值与右值" class="headerlink" title="左值与右值"></a>左值与右值</h3><p>左值（loactor value)，可以看作是存储在内存中的，有明确存储地址（可寻址）的数据；<br>右值（read value)，指的是可以提供数据值的数据（不一定可以寻址，比如常量是存储于寄存器中的数据）。</p>
+<p>简单说，左值以变量的形式存在，指向内存，生命周期比较长，我们可以对左值进行各种操作；而右值通常以常量的形式存在，是一个临时值，不能被程序的其它部分访问，生命周期很短。</p>
+<p>如对下面的表达式，x是左值，8是右值；</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>左值引用：</strong></p>
+<p>我们知道，引用是一个变量的别名，它指向的是已经存在的其它变量的内存地址。如下，x是左值，8是右值，第1行为x申请了内存；y是一个引用，相当于x的别名，y指向的是x的内存地址，y也称为<strong>左值引用</strong>，因为y有指向的内存；第3行，y是左值，所以可以被赋值，88是右值，所以可以给左值y赋值；</p>
+<p>左值引用就是通过【&amp;】符号标识的变量，注意左值引用声明时必须指向一个已经存在的地址，如下第4行就是非法的表达式，因为666是右值，没有指向666的内存，这与引用声明冲突。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">1</span>    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+<span class="token number">2</span>    <span class="token keyword">int</span> <span class="token operator">&amp;</span>y <span class="token operator">=</span> x<span class="token punctuation">;</span>
+<span class="token number">3</span>    y <span class="token operator">=</span> <span class="token number">88</span><span class="token punctuation">;</span>
+<span class="token number">4</span>    <span class="token keyword">int</span> <span class="token operator">&amp;</span>iRef <span class="token operator">=</span> <span class="token number">666</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>想要把常量赋值给左值引用，可以使用const关键字，如下，此时该表达式是合法的，y可以被程序的其它部分访问，但是不能修改y的值。此时编译器会创建一个隐藏的变量（左值）存储初始的字面常量，然后将隐藏的变量与引用绑定。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">1</span>    <span class="token keyword">const</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>y <span class="token operator">=</span> <span class="token number">666</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>右值引用：</strong></p>
+<p>上面的代码中，想要在其它地方访问常量需要声明一个常量左值引用，只能访问该常量左值引用，不能修改它的值。</p>
+<p>C++11中引入了右值引用，表示一个没有名称的临时对象即右值，可以修改这个临时对象的值；右值引用使用2个&amp;符号（&amp;&amp;）。</p>
+<p>如下，iRef是一个右值引用，第2行修改该右值引用的值，该表达式是合法的。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">1</span>    <span class="token keyword">int</span> <span class="token operator">&amp;&amp;</span>iRef <span class="token operator">=</span> <span class="token number">666</span><span class="token punctuation">;</span>
+<span class="token number">2</span>    iRef <span class="token operator">=</span> <span class="token number">88</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>需要注意的是 右值引用不能约束到左值上，如下第2行代码就是非法的。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">1</span>    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">888</span><span class="token punctuation">;</span>
+<span class="token number">2</span>    <span class="token keyword">int</span> <span class="token operator">&amp;&amp;</span>iRef <span class="token operator">=</span> x<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="名称修饰"><a href="#名称修饰" class="headerlink" title="名称修饰"></a>名称修饰</h3><p>可以查看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lanrenxinxin/p/4523492.html">这篇文章</a></p>
+<h2 id="报错与解决方案"><a href="#报错与解决方案" class="headerlink" title="报错与解决方案"></a>报错与解决方案</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/study/" rel="tag"># study</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/15/week2/" rel="prev" title="WEEK_2">
+                  <i class="fa fa-chevron-left"></i> WEEK_2
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zsy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
